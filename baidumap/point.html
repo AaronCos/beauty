@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地图标点功能</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div>
+    <a id="idid" onclick="findnj();" >
+        南京
+    </a>
+
+
+</div>
+<div id="iframe">
+
+</div>
+
+<iframe id="mainFrame" src="" frameborder="0" width="1000px;" height="768px;"></iframe>
+<script type="text/javascript">
+   var url = "http://api.map.baidu.com/marker?location=40.047669,105.313082&title=单位信息&content=南京大汉网络&output=html&src=webapp.baidu.openAPIdemo";
+    function findnj(url) {
+    alert("hello world")
+    jQuery("#mainFrame")[0].src =url;
+   // $("#frm1").src="http://api.map.baidu.com/marker?location=40.047669,105.313082&title=单位信息&content=南京大汉网络&output=html&src=webapp.baidu.openAPIdemo";
+}
+$(function(){
+
+    $("#iframe").load(url);
+})
+
+
+</script>
+</body>
+</html>
