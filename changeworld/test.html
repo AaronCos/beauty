@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../resources/jquery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+
+
+var a = '[{"name":"Hanmei","age":"32","hobby":"reading"},{"name":"linken","age":"33","hobby":"run"}]';
+$(function () {
+    //json反序列化
+    var resultObject = JSON.parse(a);
+    alert(resultObject[0].name);
+    //json序列化
+    let s = JSON.stringify(resultObject);
+    alert(s);
+})
+
+</script>
+
+</body>
+</html>
