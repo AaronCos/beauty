@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <script type="text/javascript" src="../resources/jquery/jquery-3.4.1.min.js">
+
+    </script>
+</head>
+<body>
+
+<input class="form-control required" type="text" placeholder="用户登录名" id="username" name="username" autofocus="autofocus" maxlength="20">
+
+
+<input class="form-control required" type="password" placeholder="登录密码" id="brightPassword" name="password" maxlength="20">
+<button type="button" class="btn  btn-primary btn-block" id="btnLogin">登录</button>
+<script type="text/javascript">
+
+    $(function () {
+
+        //var pattern = /^.*(?=.{6,20})(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,})(?=.*[\.!@#$%^&*?\(\)]{0,}).*$/
+        $("#btnLogin").click(function () {//6-20位且必须包含大小写字母
+            var pattern = /^.*(?=.{6,20})(?=.*\d)(?=.*[A-Z]{1,})(?=.*[a-z]{1,})(?=.*[\.!@#$%^&*?\(\)]{0,}).*$/
+            var username = $("#username").val();
+            var brightPassword = $("#brightPassword").val();
+            if(username == ''|| brightPassword==''){
+                alert("登录名和密码不为空");
+                return;
+        }
+            if(!pattern.test(brightPassword)){
+                alert("您输入的密码不符合规范");
+                return;
+            };
+
+            alert("hello");
+        });
+    });
+</script>
+
+</body>
+
+
+</html>
