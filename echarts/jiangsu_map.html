@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta charset="UTF-8">
+    <title>地图数据展示</title>
+    <script type="text/javascript" src="resources/echarts.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript"
+            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+    <script type="text/javascript" src="../resources/jquery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<!--本模块使用echarts做一个江苏省的地图数据展示，集成echarts步骤如下
+1. 引入相关文件，在本文件的head中
+2. 在body中设置一个div用于存放地图
+3. 地图的展示通常需要几大要素，下面分为准备阶段和配置阶段分别阐述：
+    一、数据准备阶段
+    ① 包括地图的json数据，该数据可以通过如下网站获取
+    http://datav.aliyun.com/tools/atlas/#&lat=31.87755764334002&lng=104.150390625&zoom=3
+    在本例中是json文件指的是jiangsu.json.
+    ②  设置指标值，该值通常是由业务需求提供，用来在地图上展示业务的数据，在本例中指的是data,本例中是 一个元素为对象的数组。
+    ③  地图上闪烁的点需要使用到中心点的坐标，这些中心点可以在地图json（jiangsu.json）中center获取，是一个对象。
+    ④  为了适应series.effectScatter 的数据要求，对data进行封装，本例中方法是convertData 结果集[{name: "南京", value: Array(3)},{name: "苏州", value: Array(3)}]
+    二、 echarts的配置阶段：
+    ⑤   1. var jsmapChart = echarts.init(document.getElementById('jsmap'));//对div进行echarts初始化
+    ⑥   2. $.get('resources/jiangsu.json', function (usaJson) { } //加载json文件，并在回调函数中进行配置
+    ⑦   3. 在⑥的回调函数中依次进行配置 首先将json文件注册进echarts,调用echarts.registerMap('hainan', usaJson); 完成注册
+    ⑧   4. 设置option，为了实现series.scatter 需要配置geo类型。
+-->
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="jsmap" style="width: 600px;height:400px;"></div>
+
+<script type="text/javascript">
+    //各坐标的数据
+    var data = [
+        {name: '南京', value: 249},
+        {name: '苏州', value: 220},
+        {name: '无锡', value: 200},
+        {name: '常州', value: 192},
+        {name: '镇江', value: 180},
+        {name: '南通', value: 170},
+        {name: '扬州', value: 160},
+        {name: '泰州', value: 155},
+        {name: '徐州', value: 150},
+        {name: '淮安', value: 149},
+        {name: '宿迁', value: 144},
+        {name: '盐城', value: 145},
+        {name: '连云港', value: 140}
+
+    ];
+    //中心点坐标
+    var geoCoordMap = {
+        '南京':[118.767413,32.041544],
+        '苏州':[120.619585,31.299379],
+        '无锡':[120.301663,31.574729],
+        '常州':[119.946973,31.772752],
+        '镇江':[119.452753,32.204402],
+        '南通':[120.864608,32.016212],
+        '扬州':[119.421003,32.393159],
+        '泰州':[119.915176,32.484882],
+        '徐州':[117.184811,34.261792],
+        '淮安':[119.021265,33.597506],
+        '宿迁':[118.275162,33.963008],
+        '盐城':[120.139998,33.377631],
+        '连云港':[119.178821,34.600018]
+
+    };
+
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            console.log('geoCoord:'+geoCoord)
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        console.log(res)
+        return res;
+    };
+
+    /**
+     * 营销数据
+     */
+    var jsmapChart = echarts.init(document.getElementById('jsmap'));
+    jsmapChart.showLoading();
+    $.get('resources/jiangsu.json', function (usaJson) {
+        jsmapChart.hideLoading();
+        echarts.registerMap('hainan', usaJson);
+        jsmapOption = {
+            title: {
+                text: '营销数据',
+                subtext: '     (截止昨天)',
+                sublink: '',
+                left: '15%'
+            },
+            tooltip: {
+                trigger: 'item',
+                showDelay: 0,
+                transitionDuration: 0.2,
+                formatter: function (params) {
+                   // alert(params.name);
+                    //return params.seriesName + '<br/>' + params.name + ': ' + params.value;
+                }
+            },
+            geo: {
+                map: 'hainan',
+                roam:true,
+                aspectScale:1,
+                label: {
+                    emphasis: {
+                        show: false,
+                        color:"#fff"
+
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        areaColor: '#D7E2F8',
+                        borderColor: 'transparent'
+                    },
+                    emphasis: {
+                        areaColor: '#f86b4c'
+                    }
+                }
+            },
+            series: [
+                {
+                    name: '全省营销数据',
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    data: convertData(data.sort(function (a, b) {
+                        return b.value - a.value;
+                    }).slice(0, 13)),
+                    symbol:'circle',
+                    symbolSize: function (val) {
+                        console.log('val:'+val)
+                        return val[2] / 10;
+                    },
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                        brushType: 'stroke',
+                        scale: '3'
+                    },
+                    hoverAnimation: false   ,
+                    label: {
+                        formatter: '{b}',
+                        position: 'right',
+                        show: true
+                    },
+                    itemStyle: {
+                        color: '#8da9ff',
+                        shadowBlur: 10,
+                        shadowColor: '#afc1ff'
+                    },
+                    zlevel: 1
+                }
+            ]
+        };
+        jsmapChart.on('click', function (params) {
+            if (params.componentSubType === 'effectScatter') {
+                alert(params.data.name);
+            }
+            if (params.componentType === 'geo') {
+                    alert($.trim(params.name));
+            }
+        })
+        jsmapChart.setOption(jsmapOption);
+    })
+</script>
+</body>
+</html>
+

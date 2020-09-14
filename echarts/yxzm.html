@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>柱状图</title>
+</head>
+<body style="height: 100%; margin: 0">
+<div id="container" style="height: 100%"></div>
+<script type="text/javascript" src="resources/echarts.js"></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+        title:{
+            show:true,
+            text:'成绩分布情况',
+            x:'3%'
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow',        // 默认为直线，可选为：'line' | 'shadow'
+                crossStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        legend: {
+
+            x: 'right',
+            data: ['一般', '优秀', '良好', '中等']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        yAxis: {
+            type: 'value'
+        },
+        xAxis: {
+            type: 'category',
+            data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日','周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        },
+        series: [
+
+            {
+                name: '一般',
+                type: 'bar',
+                stack: '总量',
+                barWidth : '48',//柱图宽度
+                color:'rgb(115,160,250)',
+
+                label: {
+                    show: true,
+                    position: 'insideRight'
+                },
+                data: [320, 302, 301, 334, 390, 330, 320,320, 302, 301, 334, 390, 330, 320]
+            }
+            ,
+            {
+                name: '优秀',
+                type: 'bar',
+                stack: '总量',
+                barWidth : '48',//柱图宽度
+                color: 'rgb(115,222,179)',
+                label: {
+                    show: true,
+                    position: 'insideRight'
+                },
+                data: [120, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name: '良好',
+                type: 'bar',
+                stack: '总量',
+                barWidth : '48',//柱图宽度
+                color: 'rgb(117,133,162)',
+                label: {
+                    show: true,
+                    position: 'insideRight'
+                },
+                data: [220, 182, 191, 234, 290, 330, 310,220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name: '中等',
+                type: 'bar',
+                stack: '总量',
+                barWidth : '48',//柱图宽度
+                color: 'rgb(247,199,57)',
+                label: {
+                    show: true,
+                    position: 'insideRight'
+                },
+                data: [150, 212, 201, 154, 190, 330, 410,150, 212, 201, 154, 190, 330, 410]
+            }
+
+        ]
+    };;
+    if (option && typeof option === "object") {
+        window.onresize = myChart.resize;
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>
