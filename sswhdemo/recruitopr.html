@@ -102,7 +102,7 @@
     <div class="layui-inline">
         <label class="layui-form-label">创建日期</label>
         <div class="layui-input-inline">
-            <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input" disabled>
+            <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
         </div>
     </div>
     <div class="layui-inline">
@@ -148,11 +148,7 @@
 
         //自定义验证规则
         form.verify({
-           /* title: function(value){
-                if(value.length < 5){
-                    return '标题至少得5个字符啊';
-                }
-            },*/
+
             subject: function (value) {
                 if(value.length != 1){
                     return '请选择科目';

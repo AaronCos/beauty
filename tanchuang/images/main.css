@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+body{min-width:1200px;font-family:微软雅黑;color: #333;}/*min-width的宽度根据项目页面宽度决定*/
+*,*:before,*:after {box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,
+strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,
+details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video,form
+{margin:0;padding:0;border:0;outline:none;}
+input{margin:0;padding:0;outline:none;}
+li{list-style:none;}
+a,ins{text-decoration:none;}
+*:focus{outline:none;}
+.fl{float:left;}
+.fr{float:right;}
+.cf:after{display:block;content:'';height:0;visibility:hidden;clear:both;}
+.cf{zoom:1;}
+.hide{display:none;}
+.block{display:block;}
+textarea,input{font-family:微软雅黑;}
+
+
+/*按钮样式*/
+#ClickMe {width: 210px;height: 55px;font-size:19px; background-color: #0a5491;color:white;margin:0 auto;cursor:pointer;}
+#goodcover {display: none;position: absolute;top: 0%;left: 0%;width: 100%;height: 100%;background-color: black;z-index: 1001;-moz-opacity: 0.8;opacity: 0.50;filter: alpha(opacity=80);}
+#code {width:830px;height:486px;position: absolute;display: none;left: 45%;z-index: 1002;}
+#closebt {float: right;}
+#closebt img {width: 28px;}
+
+.tanchuang{width:830px;height:486px;margin:0 auto;}
+.close{width:830px;height:30px;padding-left:802px;}
+.close img{width:28px;height:28px;}
+.mzsm{width:800px;height:456px;background-color:white;}
+.mzsm-topic{padding:20px; text-align:center;font-size:18px;border-bottom:1px solid #eaeaea;}
+.neichuang{width:740px;height:250px;overflow:auto;margin:25px 0 0 30px;}
+.nei-word{width:700px;margin:10px auto;}
+.tyxy{width:200px;height:50px;margin-left:40px;margin-top:40px;display: inline-block;}
+.tyxy-label{width:14px;height:14px; margin-right:15px; border:1px solid #0a5491;background-color:white;position:relative;top:2px;}
+.list-1{width:330px;height:40px;float:right;margin-top:35px;}
+.list-1 li{width: 140px;height: 40px;float:left;margin-right:20px;padding-top:8px; border:1px solid #0a5491;font-size:16px;color:#0a5491;text-align:center;cursor:pointer;}
+.list-1 li a{color:#0a5491;}
+.list-1 li:hover{background-color:#0a5491;}
+.list-1 li:hover>a{color:white!important;}

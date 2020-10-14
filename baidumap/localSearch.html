@@ -2,6 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script type="text/javascript" src="../resources/jquery/jquery-3.4.1.min.js"></script>
     <style type="text/css">
         body, html{width: 100%;height: 100%; margin:0;font-family:"微软雅黑";}
         #l-map{height:300px;width:100%;}
@@ -11,34 +12,46 @@
     <title>本地搜索的结果面板</title>
 </head>
 <body>
-<div id="r-result" ></div>
+<input type="text" id="keyword" width="50px;">
+<button type="button" id="btn-search" onclick="search();">搜索</button>
+<div id="r-result" style="width: 100%">
+</div>
 
-<div id="l-map" ></div>
+<div id="l-map"  style="width: 100%"></div>
+
 </body>
 </html>
 <script type="text/javascript">
+    var value  = "江苏省总工会";
+
+    function search() {
+        value = $("#keyword").val();
+        // 百度地图API功能
+        var map = new BMap.Map("l-map");            // 创建Map实例
+        //中心点需要设置成江苏省总工会
+        map.centerAndZoom(new BMap.Point(118.7717500400, 32.081), 11);
+
+        var local = new BMap.LocalSearch(map,
+            {
+                renderOptions: {map: map, panel: "r-result"},
+                pageCapacity: 10
+            });
+
+        local.search(value);
+    }
+
     // 百度地图API功能
+
     var map = new BMap.Map("l-map");            // 创建Map实例
     //中心点需要设置成江苏省总工会
-    map.centerAndZoom(new BMap.Point(118.404, 32.915), 11);
-    var options = {
-        onSearchComplete: function(results){
-            if (local.getStatus() == BMAP_STATUS_SUCCESS){
-                // 判断状态是否正确
-                var s = [];
-                for (var i = 0; i < results.getCurrentNumPois(); i ++){
-                    console.log(results.getPoi(i).title);
-                    s.push(results.getPoi(i).title + ", " + results.getPoi(i).address);
-                }
-                document.getElementById("log").innerHTML = s.join("<br>");
-            }
-        }
-    };
-    var local = new BMap.LocalSearch(map,
-        {
-            renderOptions: {map: map, panel: "r-result"},
-            pageCapacity: 3,
-            options
-    });
-    local.search("总工会");
+    map.centerAndZoom(new BMap.Point(118.7717500400, 32.081), 11);
+    /*
+        var local = new BMap.LocalSearch(map,
+            {
+                renderOptions: {map: map, panel: "r-result"},
+                pageCapacity: 10
+        });
+    */
+
+    local.search(value);
 </script>

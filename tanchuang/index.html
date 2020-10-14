@@ -1,0 +1,200 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="images/main.css" />
+<script type="text/javascript" src="images/jquery.js"></script>
+<title>遮罩弹窗居中demo</title>
+</head>
+
+<body>
+<div>
+	<button type="button" id="ClickMe">在线使用</button>
+</div>
+
+<div id="goodcover">vfdvfdasfdasfadsfasfadsfda</div>
+	
+<div class="tanchuang" id="code">
+	<div class="close"><a href="javascript:void(0)" id="closebt"><img src="images/close.png" alt=""></a></div>
+	<div class="mzsm">
+		<div class="mzsm-topic">免责声明</div>
+		<div class="neichuang">
+			<div class="nei-word">
+				    <p style="line-height:26pt; margin:0pt; text-indent:20pt"><span
+            style="font-family:宋体; font-size:14pt">本网站</span><span
+            style="font-family:宋体; font-size:14pt">“就业服务”栏目</span><span style="font-family:宋体; font-size:14pt">仅提供求职、招聘及其它与此相关联之服务。访问者</span><span
+            style="font-family:宋体; font-size:14pt">在使用本网站提供的平台服务前，</span><span
+            style="font-family:宋体; font-size:14pt">请</span><span style="font-family:宋体; font-size:14pt">务必</span><span
+            style="font-family:宋体; font-size:14pt">仔细阅读</span><span
+            style="font-family:宋体; font-size:14pt">以下</span><span
+            style="font-family:宋体; font-size:14pt">所有条款</span><span style="font-family:宋体; font-size:14pt">，您使用本网站的行为将视为对本声明全部内容的</span><span
+            style="font-family:宋体; font-size:14pt">知悉及</span><span style="font-family:宋体; font-size:14pt">认可。</span></p>
+    <p style="line-height:26pt; margin:0pt; text-indent:28pt"><span
+            style="font-family:宋体; font-size:14pt">1．</span><span
+            style="font-family:宋体; font-size:14pt">本网站发布的招聘信息，</span><span
+            style="font-family:宋体; font-size:14pt">其</span><span
+            style="font-family:宋体; font-size:14pt">真实性、合法性</span><span
+            style="font-family:宋体; font-size:14pt">、准确性、有效性</span><span
+            style="font-family:宋体; font-size:14pt">由</span><span style="font-family:宋体; font-size:14pt">招聘单位</span><span
+            style="font-family:宋体; font-size:14pt">负责</span><span style="font-family:宋体; font-size:14pt">，</span><span
+            style="font-family:宋体; font-size:14pt">本平台不提供任何保证，亦不承担任何法律责任。为保证求职者合法权益，请认真辨别，谨慎求职。</span><span
+            style="font-family:宋体; font-size:14pt">求职者</span><span style="font-family:宋体; font-size:14pt">关于</span><span
+            style="font-family:宋体; font-size:14pt">招聘具体情况</span><span
+            style="font-family:宋体; font-size:14pt">的</span><span style="font-family:宋体; font-size:14pt">疑问，</span><span
+            style="font-family:宋体; font-size:14pt">由</span><span style="font-family:宋体; font-size:14pt">招聘单位</span><span
+            style="font-family:宋体; font-size:14pt">负责解答</span><span style="font-family:宋体; font-size:14pt">。</span></p>
+    <p style="line-height:26pt; margin:0pt; text-indent:28pt"><span
+            style="font-family:宋体; font-size:14pt">2. </span><span style="font-family:宋体; font-size:14pt">企业用户注册需提供社会信用代码证、工会法人资格登记证书、法人证件等相关企业资质证</span><span
+            style="font-family:宋体; font-size:14pt">明材料，由工会组织</span><span
+            style="font-family:宋体; font-size:14pt">进行</span><span style="font-family:宋体; font-size:14pt">形式</span><span
+            style="font-family:宋体; font-size:14pt">审核</span><span style="font-family:宋体; font-size:14pt">。</span><span
+            style="font-family:宋体; font-size:14pt">如果</span><span style="font-family:宋体; font-size:14pt">相关</span><span
+            style="font-family:宋体; font-size:14pt">信息</span><span
+            style="font-family:宋体; font-size:14pt">发生变更，</span><span style="font-family:宋体; font-size:14pt">企业用户应及时提供新的材料</span><span
+            style="font-family:宋体; font-size:14pt">予以更新。</span><span
+            style="font-family:宋体; font-size:14pt">企业用户</span><span
+            style="font-family:宋体; font-size:14pt">承诺</span><span
+            style="font-family:宋体; font-size:14pt">其提交的主体材料及</span><span
+            style="font-family:宋体; font-size:14pt">所发布的信息</span><span style="font-family:宋体; font-size:14pt">均为真实、合法、准确、有效信息，如</span><span
+            style="font-family:宋体; font-size:14pt">提供虚假材料、</span><span
+            style="font-family:宋体; font-size:14pt">发布虚假</span><span
+            style="font-family:宋体; font-size:14pt">信息</span><span style="font-family:宋体; font-size:14pt">或者侵犯任何第三方的合法权益引起的一切纠纷或责任，由企业用户</span><span
+            style="font-family:宋体; font-size:14pt">自行承担，本网站不承担任何责任。 </span></p>
+    <p style="line-height:26pt; margin:0pt; text-indent:28pt"><span style="font-family:宋体; font-size:14pt">3</span><span
+            style="font-family:宋体; font-size:14pt">.</span><span
+            style="font-family:宋体; font-size:14pt"> 个人用户</span><span
+            style="font-family:宋体; font-size:14pt">承诺其</span><span style="font-family:宋体; font-size:14pt">提供的注册资料，包括姓名、地址、联系方式等，</span><span
+            style="font-family:宋体; font-size:14pt">系</span><span style="font-family:宋体; font-size:14pt">真实、</span><span
+            style="font-family:宋体; font-size:14pt">合法、</span><span
+            style="font-family:宋体; font-size:14pt">有效、准确</span><span
+            style="font-family:宋体; font-size:14pt">信息</span><span style="font-family:宋体; font-size:14pt">。如</span><span
+            style="font-family:宋体; font-size:14pt">上述信息发生变更</span><span
+            style="font-family:宋体; font-size:14pt">，请及时予以更新。</span><span style="font-family:宋体; font-size:14pt">个人用户对其信息提供行为等承担</span><span
+            style="font-family:宋体; font-size:14pt">一切</span><span style="font-family:宋体; font-size:14pt">法律</span><span
+            style="font-family:宋体; font-size:14pt">责任</span><span style="font-family:宋体; font-size:14pt">。</span></p>
+    <p style="line-height:26pt; margin:0pt; orphans:0; text-align:justify; text-indent:28.05pt; widows:0"><span
+            style="font-family:宋体; font-size:14pt">4</span><span style="font-family:宋体; font-size:14pt">. </span><span
+            style="font-family:宋体; font-size:14pt">当</span><span
+            style="font-family:宋体; font-size:14pt">企业用户、个人用户使用</span><span style="font-family:宋体; font-size:14pt">本网站服务时，视为你已经同意本网站访问者</span><span
+            style="font-family:宋体; font-size:14pt">拥有</span><span style="font-family:宋体; font-size:14pt">对</span><span
+            style="font-family:宋体; font-size:14pt">相关企业信息、招聘信息及</span><span
+            style="font-family:宋体; font-size:14pt">简历</span><span style="font-family:宋体; font-size:14pt">等</span><span
+            style="font-family:宋体; font-size:14pt">进行查询和使用</span><span style="font-family:宋体; font-size:14pt">的权利，对于因此而引起的任何法律纠纷</span><span
+            style="font-family:宋体; font-size:14pt">，</span><span style="font-family:宋体; font-size:14pt">本网站</span><span
+            style="font-family:宋体; font-size:14pt">不承担任何法律责任。</span><span style="font-family:宋体; font-size:14pt">招聘单位仅可就招聘目的使用求职者之简历信息；</span><span
+            style="font-family:宋体; font-size:14pt">求职者仅可因应聘某职位，使用招聘单位发布之招聘信息。</span><span
+            style="font-family:宋体; font-size:14pt">访问者</span><span style="font-family:宋体; font-size:14pt">不得将任何本网站的信息用作任何商业目的</span><span
+            style="font-family:宋体; font-size:14pt">或非法目的</span><span style="font-family:宋体; font-size:14pt">。</span></p>
+    <p style="line-height:26pt; margin:0pt; text-indent:20pt"><span style="font-family:宋体; font-size:14pt">5</span><span
+            style="font-family:宋体; font-size:14pt">．</span><span
+            style="font-family:宋体; font-size:14pt">本网站要求</span><span style="font-family:宋体; font-size:14pt">任何在本网站发布的信息，均必须符合</span><span
+            style="font-family:宋体; font-size:14pt">真实、</span><span
+            style="font-family:宋体; font-size:14pt">合法、准确、</span><span
+            style="font-family:宋体; font-size:14pt">有效</span><span
+            style="font-family:宋体; font-size:14pt">的原则。但本网站将不能保</span><span style="font-family:宋体; font-size:14pt">证所有由第三方提供的信息，或本网站自行采集的信息完全准确。</span><span
+            style="font-family:宋体; font-size:14pt">访问者应</span><span
+            style="font-family:宋体; font-size:14pt">了解，对</span><span
+            style="font-family:宋体; font-size:14pt">相关</span><span
+            style="font-family:宋体; font-size:14pt">信息的使用，</span><span
+            style="font-family:宋体; font-size:14pt">需自行进行</span><span style="font-family:宋体; font-size:14pt">核实。本网站对访问者未经自行核实误用本网站信息造成的任何损失不予承担任何责任。</span>
+    </p>
+    <p style="line-height:26pt; margin:0pt; text-indent:20pt"><span
+            style="font-family:宋体; font-size:14pt">6. </span><span style="font-family:宋体; font-size:14pt">本网站不对用户的线下行为负责。企业用户及个人用户均应审慎的对待他方之行为，因为他方之行为给用户造成任何不利影响的，</span><span
+            style="font-family:宋体; font-size:14pt">请循法定途径救济维权，</span><span style="font-family:宋体; font-size:14pt">本网站不承担任何法律责任。 </span>
+    </p>
+    <p style="line-height:26pt; margin:0pt; text-indent:20pt"><span
+            style="font-family:宋体; font-size:14pt">7.</span><span style="font-family:宋体; font-size:14pt"> </span><span
+            style="font-family:宋体; font-size:14pt">在本网站已采取</span><span
+            style="font-family:宋体; font-size:14pt">合理</span><span
+            style="font-family:宋体; font-size:14pt">的安全防范措施</span><span
+            style="font-family:宋体; font-size:14pt">后</span><span style="font-family:宋体; font-size:14pt">，</span><span
+            style="font-family:宋体; font-size:14pt">因黑客攻击、计算机病毒入侵或发作等影响网站正常经营的不可抗力，造成的</span><span
+            style="font-family:宋体; font-size:14pt">访问者信息</span><span style="font-family:宋体; font-size:14pt">资料泄露、被盗用或被篡改等，本网站不承担任何法律责任。</span>
+    </p>
+    <p style="line-height:26pt; margin:0pt; text-indent:20pt"><span style="font-family:宋体; font-size:14pt">8</span><span
+            style="font-family:宋体; font-size:14pt">. </span><span style="font-family:宋体; font-size:14pt">注册会员均代表您已经阅读并同意遵守本规则所有条款</span><span
+            style="font-family:宋体; font-size:14pt">(</span><span style="color:#ff0000; font-family:宋体; font-size:14pt"><a target="_blank" style="color: red" href="https://www.jsghfw.com/yswj.html">江苏工会用户协议</a></span><span
+            style="font-family:宋体; font-size:14pt">)，</span><span style="font-family:宋体; font-size:14pt">如果您</span><span
+            style="font-family:宋体; font-size:14pt">不同意请勿使用！</span></p>
+			</div>
+		</div>	
+		<div class="tyxy">
+			<input type="checkbox" class="tyxy-label">
+			<label>同意协议</label>
+		</div>
+  		<ul class="list-1">
+			<li><a href="#">确&nbsp;&nbsp;认</a></li>
+			<li><a href="#">取&nbsp;&nbsp;消</a></li>
+		</ul>
+  </div>
+	<div class="cl"></div>
+</div>
+
+</body>
+<script>
+$(function() {
+    //alert($(window).height());
+    $('#ClickMe').click(function() {
+        $('#code').center();
+        $('#goodcover').show();
+        $('#code').fadeIn();
+    });
+    $('#closebt').click(function() {
+        $('#code').hide();
+        $('#goodcover').hide();
+    });
+	$('#goodcover').click(function() {
+        $('#code').hide();
+        $('#goodcover').hide();
+    });
+    /*var val=$(window).height();
+	var codeheight=$("#code").height();
+    var topheight=(val-codeheight)/2;
+	$('#code').css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.css({
+                'top': ($(window).height() - $('#code').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+})
+</script>
+</html>

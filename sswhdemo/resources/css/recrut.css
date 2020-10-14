@@ -1,0 +1,21 @@
+.baseframe{
+    height: 100%;
+    background-color: darkseagreen;
+}
+.baseframe1{
+    height:  100%;
+    background-color: #bc403c;
+
+}
+.baseframe2{
+    height: 100%;
+    background-color: #2439bc;
+}
+p{
+    color: white;
+}
+h2{
+    font-family: Arial;
+    font-size: 25px;
+    color: white;
+}

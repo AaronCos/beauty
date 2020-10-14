@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多文件上传demo</title>
+    <script type="text/javascript" src="../resources/layui/layui.js"></script>
+    <link rel="stylesheet" href="../resources/layui/css/layui.css">
+
+</head>
+<body>
+<!--1、多文件上传 2、单个文件大小 2M 3、文件类型限制 jpg、png、jpeg 4、显示样式要改 5、要加上传进度 6-->
+
+<button type="button" class="layui-btn" id="test1">
+    <i class="layui-icon">&#xe67c;</i>上传图片
+</button>
+
+<script src="/static/build/layui.js"></script>
+<script>
+    layui.use('upload', function(){
+        var upload = layui.upload;
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1' //绑定元素
+            ,url: '/upload/' //上传接口
+            ,accept:'images'
+            ,exts:'png|gif|bmp|jpeg'
+            ,size:2048   //大小不超过2M
+            ,drag:true    //支持拖拽
+            ,multiple:true
+            ,done: function(res){
+                //上传完毕回调
+            }
+            ,error: function(){
+                //请求异常回调
+            }
+        });
+    });
+</script>
+</body>
+</html>
